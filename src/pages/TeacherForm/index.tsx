@@ -28,6 +28,9 @@ function TeacherForm(){
     ]);
     }
     /*!notetoself!*/
+    //setScheduleItemValue(index, 'week_day',1 (segunda))
+    //A maneira como isso foi projetado não permite criar horários diferentes no mesmo dia da semana
+    //pois isso trás problemas com a key, que no momento é o próprio value do week_day. lol
     function setScheduleItemValue(position: number, field:string, value:string){
         const newArray = scheduleItems.map((scheduleItem, index) => {
             if(index === position) {
@@ -133,9 +136,7 @@ function TeacherForm(){
                                     {value:'3', label:'Quarta-feira'},
                                     {value:'4', label:'Quinta-feira'},
                                     {value:'5', label:'Sexta-feira'},
-                                    {value:'6', label:'Sábado'},
-                                    {value:'7', label:'Domingo'},
-                                    
+                                    {value:'6', label:'Sábado'},                                    
                                 ]}
                                 value={scheduleItem.week_day}
                                 name="week-day"
